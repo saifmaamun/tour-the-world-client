@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Destination = ({ destination }) => {
     console.log(destination)
-    const {name, description, thumbnail, img, cost, _id } = destination;
+    const {name, description, img, _id } = destination;
     return (
         <div>
             <Container>
-                {/* Stack the columns on mobile by making one full-width and the other half-width */}
                 <Row className="mt-5 py-5 border border-warning">
                     <Col className="" xs={12} md={4}>
                         <img className="w-100" src={img} alt="" />
@@ -16,7 +15,6 @@ const Destination = ({ destination }) => {
                     <Col xs={6} md={8}>
                         <div className="text-start">
                             <h1>{name}</h1>
-                            <h1>{_id}</h1>
                             <p>{description}</p>
                             <Link to={`/destinationDetails/${_id}`}>
                             <Button className="btn btn-warning">Details</Button>

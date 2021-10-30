@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './context/AuthProvider';
+import Booking from './Pages/Booking/Booking';
 import DestinationDetails from './Pages/DestinationDetails/DestinationDetails';
 import Error from './Pages/Error/Error';
 import Destination from './Pages/Home/Destination/Destination';
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/tour">
             <Tour></Tour>
+          </Route>
+          <Route path="/booking/:id">
+            <Booking></Booking>
           </Route>
           <Route path="/login">
             <Login></Login>
