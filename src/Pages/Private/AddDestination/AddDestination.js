@@ -8,7 +8,7 @@ const AddTrip = () => {
     const onSubmit = data => {
         console.log(data)
 
-        axios.post('http://localhost:5000/destinations', data)
+        axios.post('https://rocky-bastion-46955.herokuapp.com/destinations', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added Successfully')

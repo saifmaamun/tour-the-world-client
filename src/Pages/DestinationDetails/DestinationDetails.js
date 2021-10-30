@@ -8,7 +8,7 @@ const DestinationDetails = () => {
     const [destination, setDestination] = useState({})
     const { name, description, thumbnail, img, cost, _id } = destination;
     useEffect(() => {
-        fetch(`http://localhost:5000/destinationDetails/${id}`)
+        fetch(`https://rocky-bastion-46955.herokuapp.com/destinationDetails/${id}`)
         .then(res => res.json())
             .then(data => setDestination(data))
     },[])

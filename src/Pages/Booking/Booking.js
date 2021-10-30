@@ -17,7 +17,7 @@ const Booking = () => {
     const { register, handleSubmit, reset} = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:5000/booked', data)
+        axios.post('https://rocky-bastion-46955.herokuapp.com/booked', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added Successfully')
@@ -31,7 +31,7 @@ const Booking = () => {
     const [booking, setBooking] = useState({})
     const { name, description, img, cost} = booking;
     useEffect(() => {
-        fetch(`http://localhost:5000/destinationDetails/${id}`)
+        fetch(`https://rocky-bastion-46955.herokuapp.com/destinationDetails/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [])

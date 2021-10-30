@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const ManageTrips = () => {
     const [destinations, setDestinations] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/destinations')
+        fetch('https://rocky-bastion-46955.herokuapp.com/destinations')
             .then(res => res.json())
             .then(data => setDestinations(data))
     }, []);
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/destinations/${id}`
+        const url = `https://rocky-bastion-46955.herokuapp.com/destinations/${id}`
         fetch(url, {
             method:'DELETE'
         })
