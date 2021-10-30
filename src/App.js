@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './context/AuthProvider';
+import DestinationDetails from './Pages/DestinationDetails/DestinationDetails';
 import Error from './Pages/Error/Error';
 import Destination from './Pages/Home/Destination/Destination';
 import Destinations from './Pages/Home/Destinations/Destinations';
@@ -8,9 +9,10 @@ import Home from './Pages/Home/Home/Home';
 import Tour from './Pages/Home/Tour/Tour';
 import Tours from './Pages/Home/Tours/Tours';
 import Login from './Pages/Login/Login';
-import AddTrip from './Pages/Private/AddTrip/AddTrip';
+import AddDestination from './Pages/Private/AddDestination/AddDestination';
 import ManageTrips from './Pages/Private/ManageTrips/ManageTrips';
 import MyTrips from './Pages/Private/MyTrips/MyTrips';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Header from './Pages/Shared/Header/Header';
 import Signin from './Pages/Signin/Signin';
 
@@ -46,15 +48,18 @@ function App() {
           <Route path="/signin">
             <Signin></Signin>
           </Route>
-          <Route path="/addtrip">
-            <AddTrip></AddTrip>
+          <Route path="/destinationDetails/:id">
+              <DestinationDetails></DestinationDetails>
           </Route>
-          <Route path="/managetrips">
+          <PrivateRoute path="/adddestination">
+            <AddDestination></AddDestination>
+          </PrivateRoute>
+            <PrivateRoute path="/managetrips">
             <ManageTrips></ManageTrips>
-          </Route>
-          <Route path="/mytrips">
+            </PrivateRoute>
+            <PrivateRoute path="/mytrips">
             <MyTrips></MyTrips>
-          </Route>
+            </PrivateRoute>
           <Route path="*">
             <Error></Error>
           </Route>

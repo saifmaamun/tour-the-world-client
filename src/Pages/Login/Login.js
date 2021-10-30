@@ -3,9 +3,13 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Footer from '../Shared/Footer/Footer';
-import Header from '../Shared/Header/Header';
+import { useHistory, useLocation } from "react-router-dom";
 
 const Login = () => {
+
+    const history = useHistory()
+    const location = useLocation()
+    const url=location.state?.from||"/home"
     // sign in method
     const { signinUsingGoogle, handleUserLogin,error} = useAuth();
 
@@ -21,6 +25,10 @@ const Login = () => {
 
     const handleLogin = () => {
         handleUserLogin(email, password);
+        console.log(url)
+        history.push(url)
+        
+        
     };
 
 

@@ -34,7 +34,6 @@ const Signin = () => {
         }
         else {
             registerNewUser(email, password);
-            
         }
     }
 
@@ -42,6 +41,7 @@ const Signin = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
+                
                 window.location.reload()
                 console.log(user);
                 setError('');
