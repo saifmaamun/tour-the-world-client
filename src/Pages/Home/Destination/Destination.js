@@ -3,7 +3,6 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Destination = ({ destination }) => {
-    console.log(destination)
     const {name, description, img, _id } = destination;
     return (
         <div>

@@ -16,6 +16,7 @@ const Destinations = () => {
                     <Col className="" xs={10} md={10}>
                         {
                             destinations.map(destination => <Destination
+                                key={destination._id}
                             destination={destination}
                             ></Destination>)
                         }

@@ -10,14 +10,9 @@ const ManageTrips = () => {
         fetch('https://rocky-bastion-46955.herokuapp.com/booked')
             .then(res => res.json())
             .then(data => {
-                // const added = data.filter(items => items.userEmail === user.email)
-                // console.log(added)
                 setBookedItems(data)
             })
     }, []);
-    // function modal (line) {
-    //     <div class="modal-dialog modal-sm">line</div>
-    // }
 
     const handleDelete = id => {
         console.log(id)
@@ -31,7 +26,7 @@ const ManageTrips = () => {
                 if (data.deletedCount) {
                     alert('this will be deleted')
                     const remaining = bookedItems.filter(bookedItem => bookedItem._id !== id)
-                    setBookedItems(data)
+                    setBookedItems(remaining)
                 }
             })
     }

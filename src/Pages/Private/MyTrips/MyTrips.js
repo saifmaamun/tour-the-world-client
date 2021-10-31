@@ -11,13 +11,9 @@ const MyTrips = () => {
             .then(res => res.json())
             .then(data => {
                 const added = data.filter(items => items.userEmail===user.email)
-                console.log(added)
                 setBookedItems(added)
             })
     }, []);
-    // function modal (line) {
-    //     <div class="modal-dialog modal-sm">line</div>
-    // }
 
     const handleDelete = id => {
         console.log(id)

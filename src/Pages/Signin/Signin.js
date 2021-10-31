@@ -110,5 +110,3 @@ const Signin = () => {
 };
 
 export default Signin;
-
-// onChange={toggleLogin} 

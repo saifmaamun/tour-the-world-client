@@ -6,7 +6,6 @@ import './AddDestination.css'
 const AddTrip = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
 
         axios.post('https://rocky-bastion-46955.herokuapp.com/destinations', data)
             .then(res => {
@@ -14,7 +13,6 @@ const AddTrip = () => {
                     alert('Added Successfully')
                     reset()
                 }
-            console.log(res)
         })
     };
     return (

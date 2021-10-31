@@ -27,7 +27,6 @@ const useFirebase = () => {
         setIsLoading(true)
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                console.log(result.user)
                 setUser(result.user)
                 
             })

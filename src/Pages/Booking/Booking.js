@@ -19,14 +19,12 @@ const Booking = () => {
 
     
     const onSubmit = data => {
-        console.log(data)
         axios.post('https://rocky-bastion-46955.herokuapp.com/booked', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added Successfully')
                     history.push('/mytrips')
                 }
-                console.log(res)
             })
             };
     
