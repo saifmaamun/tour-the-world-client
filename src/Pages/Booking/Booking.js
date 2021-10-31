@@ -7,6 +7,9 @@ import './Booking.css'
 import useAuth from '../../hooks/useAuth';
 
 const Booking = () => {
+    const [booking, setBooking] = useState({})
+    const { name, description, img, cost } = booking;
+
     const { id } = useParams();
 
     const history = useHistory()
@@ -14,7 +17,7 @@ const Booking = () => {
     const { user } = useAuth();
     const { displayName, email } = user;
 
-    const { register, handleSubmit, reset} = useForm();
+    
     const onSubmit = data => {
         console.log(data)
         axios.post('https://rocky-bastion-46955.herokuapp.com/booked', data)
@@ -28,13 +31,20 @@ const Booking = () => {
             };
     
     
-    const [booking, setBooking] = useState({})
-    const { name, description, img, cost} = booking;
+    
     useEffect(() => {
         fetch(`https://rocky-bastion-46955.herokuapp.com/destinationDetails/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data))
-    }, [])
+    }, [booking])
+    const { register, handleSubmit, reset } = useForm({
+        defaultValues: {
+            placeName: name,
+            userName: displayName,
+            userEmail: email,
+            cost: cost
+        }
+    });
     return (
         <div>
             <div>
