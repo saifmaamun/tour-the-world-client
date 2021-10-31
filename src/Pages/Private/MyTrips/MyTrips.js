@@ -12,7 +12,7 @@ const MyTrips = () => {
 
     const handleDelete = id => {
         console.log(id)
-        const url = `http://localhost:5000/booked/${id}`
+        const url = `https://rocky-bastion-46955.herokuapp.com/booked/${id}`
         fetch(url, {
             method: 'DELETE'
         })
