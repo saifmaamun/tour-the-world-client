@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const MyTrips = () => {
+    const {user}=useAuth();
     const [bookedItems, setBookedItems] = useState([])
     useEffect(() => {
+        // fetch('http://localhost:5000/booked')
         fetch('https://rocky-bastion-46955.herokuapp.com/booked')
             .then(res => res.json())
-            .then(data => setBookedItems(data))
+            .then(data => {
+                const added = data.filter(items => items.userEmail===user.email)
+                console.log(added)
+                setBookedItems(added)
+            })
     }, []);
 
     const handleDelete = id => {
@@ -55,5 +62,5 @@ const MyTrips = () => {
     );
 };
 
-
+// user?.email === bookedItem.userEmail &&
 export default MyTrips;
