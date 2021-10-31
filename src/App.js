@@ -4,16 +4,17 @@ import AuthProvider from './context/AuthProvider';
 import Booking from './Pages/Booking/Booking';
 import DestinationDetails from './Pages/DestinationDetails/DestinationDetails';
 import Error from './Pages/Error/Error';
+import About from './Pages/Home/About/About';
 import Destination from './Pages/Home/Destination/Destination';
 import Destinations from './Pages/Home/Destinations/Destinations';
 import Home from './Pages/Home/Home/Home';
-import Tour from './Pages/Home/Tour/Tour';
-import Tours from './Pages/Home/Tours/Tours';
+import Review from './Pages/Home/Reviews/Review';
 import Login from './Pages/Login/Login';
 import AddDestination from './Pages/Private/AddDestination/AddDestination';
 import ManageTrips from './Pages/Private/ManageTrips/ManageTrips';
 import MyTrips from './Pages/Private/MyTrips/MyTrips';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import Signin from './Pages/Signin/Signin';
 
@@ -36,13 +37,14 @@ function App() {
           </Route>
           <Route path="/destination">
             <Destination></Destination>
-          </Route>
-          <Route path="/tours">
-            <Tours></Tours>
-          </Route>
-          <Route path="/tour">
-            <Tour></Tour>
-          </Route>
+            </Route>
+          <Route path="/review">
+            <Review></Review>
+            </Route>
+          <Route path="/about">
+            <About></About>
+            </Route>
+          
           <Route path="/booking/:id">
             <Booking></Booking>
           </Route>
@@ -67,7 +69,8 @@ function App() {
           <Route path="*">
             <Error></Error>
           </Route>
-      </Switch>
+          </Switch>
+          <Footer></Footer>
       </BrowserRouter>
       </AuthProvider>
     </div>

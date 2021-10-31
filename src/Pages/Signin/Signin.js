@@ -88,7 +88,7 @@ const Signin = () => {
                                 </div>
                                 
                                     <div className="row mb-3 text-danger">{error}</div>
-                                <button type="submit" className="btn btn-primary">
+                                <button type="submit" className="btn btn-warning">
                                     Register
                                 </button>
                                 
@@ -96,7 +96,7 @@ const Signin = () => {
                             </form>
                             <br />
                             <p>=====Or Sign in With Google=====</p>
-                            <Button onSubmit={signinUsingGoogle}>Sign In With Google</Button>
+                            <Button  onSubmit={signinUsingGoogle}>Sign In With Google</Button>
                             <br />
                             <br />
                             <Link to='/login'><p>Already have an account</p></Link>
@@ -105,8 +105,6 @@ const Signin = () => {
                     <Col></Col>
                 </Row>
             </Container>
-            
-            <Footer></Footer>
         </div>
     );
 };

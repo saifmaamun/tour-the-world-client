@@ -36,13 +36,7 @@ const Login = () => {
         <div>
             <div>
                 <h1 className="fw-bolder mt-2">Please Login</h1>
-                {/* <form onSubmit={handleSubmit(onSubmit)}>
-                    <input className="my-2 px-2 w-25 border-2 rounded fs-5 fw-bold" {...register("example")}  placeholder="email" /> <br />
-                    <input className="my-2 px-2 w-25 border-2 rounded fs-5 fw-bold" {...register("exampleRequired", { required: true })} placeholder="password" /> <br />
-                    {errors.exampleRequired && <span>This field is required</span>}
-
-                    <button type="submit">Login</button>
-                </form> */}
+                
                 <Container>
                     <Row>
                         <Col xs={12} md={3}></Col>
@@ -69,7 +63,6 @@ const Login = () => {
                     </Row>
                 </Container>
                 </div>
-            <Footer></Footer>
         </div>
     );
 };

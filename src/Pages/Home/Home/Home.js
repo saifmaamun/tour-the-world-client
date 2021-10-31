@@ -1,19 +1,20 @@
 import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
-import Header from '../../Shared/Header/Header';
 import Banner from '../Banner/Banner';
+import Review from '../Reviews/Review';
 import Destinations from '../Destinations/Destinations';
-import Tours from '../Tours/Tours';
+import About from '../About/About';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <Destinations></Destinations>
-            <Tours></Tours>
-            <Footer></Footer>
+            <Review></Review>
+            <About></About>
         </div>
     );
 };
 
 export default Home;
+
