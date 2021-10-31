@@ -7,7 +7,6 @@ const MyTrips = () => {
     const {user}=useAuth();
     const [bookedItems, setBookedItems] = useState([])
     useEffect(() => {
-        // fetch('http://localhost:5000/booked')
         fetch('https://rocky-bastion-46955.herokuapp.com/booked')
             .then(res => res.json())
             .then(data => {
@@ -16,6 +15,9 @@ const MyTrips = () => {
                 setBookedItems(added)
             })
     }, []);
+    // function modal (line) {
+    //     <div class="modal-dialog modal-sm">line</div>
+    // }
 
     const handleDelete = id => {
         console.log(id)
@@ -26,9 +28,8 @@ const MyTrips = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                console.log(data)
                 if (data.deletedCount) {
-                    alert('Deleted Successfully')
+                    alert('this will be deleted')
                     const remaining = bookedItems.filter(bookedItem => bookedItem._id !== id)
                     setBookedItems(remaining)
                 }
@@ -36,28 +37,27 @@ const MyTrips = () => {
     }
     return (
         <div>
-            <h1>My trip</h1>
-
-            {
-                bookedItems.map(bookedItem => <div
-                    key={bookedItem._id}>
-                    <Container>
-                        <Row className="mt-5 py-5 border border-warning">
-                            <Col sm={12} md={8}>
+            <h1>{user.displayName}'s trip</h1>
+            <Container>
+                {
+                    bookedItems.map(bookedItem => <div
+                        key={bookedItem._id}>
+                        <Row className="m-5 bg-warning p-3 rounded">
+                            <Col md={8}>
                                 <div className="text-start">
                                     <h1>Destination: {bookedItem.placeName}</h1>
-                                <h5>User Name: {bookedItem.userName}</h5>
-                                <h5>User Email: {bookedItem.userEmail}</h5>
-                                <h5>Cost: ${bookedItem.cost}/Per Person  ||  for 1 week</h5>
+                                    <h5>User Name: {bookedItem.userName}</h5>
+                                    <h5>User Email: {bookedItem.userEmail}</h5>
+                                    <h5>Cost: ${bookedItem.cost}/Per Person  ||  for 1 week</h5>
                                 </div>
-                                <Col className="" sm={12} md={4}>
-                                    <button onClick={() => handleDelete(bookedItem._id)}>Remove</button>
                             </Col>
+                            <Col className="text-center mt-5 pt-3" md={4}>
+                                <button className="btn btn-dark fw-bold" onClick={() => handleDelete(bookedItem._id)}>Remove</button>
                             </Col>
                         </Row>
-                    </Container>
-                </div>)
-            }
+                    </div>)
+                }
+            </Container>
         </div>
     );
 };
